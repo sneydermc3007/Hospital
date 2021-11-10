@@ -1,0 +1,10 @@
+//Clase abstracta
+package com.basededatos;
+
+public abstract class ClsQueries {
+
+    abstract public float Query(float ID, String nombres, String apellidos);
+    abstract public float Query(float ID);
+    abstract public void QueryModificar(float ID, String nombres, String apellidos);
+    abstract public void QueryEliminar(float ID);
+}

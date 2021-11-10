@@ -1,5 +1,4 @@
 //Establecer la conexion para el programa principal
-
 package com.basededatos;
 
 import java.sql.*;
