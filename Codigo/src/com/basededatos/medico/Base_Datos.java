@@ -1,7 +1,7 @@
+//CRUD tbl_Medico
 package com.basededatos.medico;
 
 import java.sql.*;
-import com.basededatos.ClsQueries;
 import com.basededatos.ClsConexion;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -43,7 +43,7 @@ public class Base_Datos extends ClsQueries {
         objcone.Conexion();
         try {
             state = cnnConnection.createStatement();
-            result = state.executeQuery("SELECT * FROM tblpago WHERE ID_MEDICO = '"+ID+"'");
+            result = state.executeQuery(" SELECT * FROM tbl_medico WHERE ID_MEDICO = "+ID+" ");
         } catch (SQLException e){
             Logger.getLogger(Base_Datos.class.getName()).log(Level.SEVERE, null, e);
         }
@@ -53,15 +53,15 @@ public class Base_Datos extends ClsQueries {
     @Override
     public void QueryModificar(float ID, String nombres, String apellidos) { //Modificar
         objcone.Conexion();
-        String query = "UPDATE tbl_medico SET Nombre_M = '"+nombres+"', Apellido_M '"+apellidos+"' WHERE(ID_MEDICO '"+ID+"')";
+        String query = "UPDATE tbl_medico SET Nombre_M = '"+nombres+"', Apellido_M = '"+apellidos+"' WHERE(ID_MEDICO = "+ID+")";
         try{
             state = cnnConnection.createStatement();
             state.executeUpdate(query);
-            System.out.println("Registro actualizado");
+            System.out.println("Registro medico actualizado");
             System.out.println("-----------------------------------------------------");
         }catch (SQLException e) {
             e.printStackTrace();
-            System.out.println("Problemas al actualizar el registro");
+            System.out.println("Problemas al actualizar el registro del medico");
         }
     }
 
@@ -70,7 +70,7 @@ public class Base_Datos extends ClsQueries {
         objcone.Conexion();
         try{
             state = cnnConnection.createStatement();
-            state.executeUpdate("DELETE FROM tblpago WHERE ID_MEDICO = '"+ID+"'");
+            state.executeUpdate("DELETE FROM tbl_medico WHERE ID_MEDICO = "+ID+"");
             System.out.println("Registro eliminado");
             System.out.println("-----------------------------------------------------");
         } catch (SQLException e) {

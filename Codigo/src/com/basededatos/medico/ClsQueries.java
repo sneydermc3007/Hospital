@@ -1,5 +1,5 @@
 //Clase abstracta
-package com.basededatos;
+package com.basededatos.medico;
 
 public abstract class ClsQueries {
 
