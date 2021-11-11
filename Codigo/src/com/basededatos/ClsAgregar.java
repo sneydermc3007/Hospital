@@ -29,7 +29,7 @@ public class ClsAgregar {
         }
     }
 
-    public void Turno() {
+    public void  Turno() {
         //obj de las conexiones
         Scanner lector=new Scanner(System.in);
         int ID_TURNO;
