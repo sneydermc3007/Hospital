@@ -11,30 +11,33 @@ public class Main {
     public static void menuPrincipal() {
         Scanner lector = new Scanner(System.in);
         int tabla;
+        System.out.println("---- Menu Principal ----");
+        System.out.println("\t 1. Deseo Agregar.  ");
+        System.out.println("\t 2. Deseo Modificar.");
+        System.out.println("\t 3. Deseo Eliminar. ");
+        System.out.println("\t 4. Deseo Consultar.");
+        System.out.print("\nEscriba una opción para elegir un apartado del CRUD: ");
 
-        System.out.println("---Digite la opción ---.");
-        System.out.println("---   1.Agregar.    ---");
-        System.out.println("---   2.Modificar.  ---"); //todos datos
-        System.out.println("---   3.Eliminar.   ---");//listo
-        System.out.println("---   4.Consultar.  ---");//
         tabla = lector.nextInt();
 
         switch (tabla) {
-            case 1:
+            case 1 -> {
                 ClsAgregar agregar = new ClsAgregar();
                 agregar.menu();
-                break;
-            case 2:
+            }
+            case 2 -> {
                 ClsModificar modificar = new ClsModificar();
-                break;
-            case 3:
-                ClsEliminar eliminar= new ClsEliminar();
-                break;
-            case 4:
-                ClsConsultar consultar=new ClsConsultar();
-                break;
-            default:
-                System.out.println("La opción ingresada no se ha encontrado.");
+                modificar.menu();
+            }
+            case 3 -> {
+                ClsEliminar eliminar = new ClsEliminar();
+                eliminar.menu();
+            }
+            case 4 -> {
+                ClsConsultar consultar = new ClsConsultar();
+                consultar.menu();
+            }
+            default -> System.out.println("La opción ingresada no se ha encontrado.");
         }
     }
 }

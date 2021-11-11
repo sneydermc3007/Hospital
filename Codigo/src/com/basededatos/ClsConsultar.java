@@ -1,30 +1,22 @@
 package com.basededatos;
 
-import javax.swing.table.DefaultTableModel;
 import java.util.Scanner;
 
 public class ClsConsultar {
     public void menu() {
         Scanner lector = new Scanner(System.in);
         int tabla;
-        System.out.println("---Digite la opción---.");
+        System.out.println("--- Digite la opción en la que la desea consultar. ---");
         System.out.println("---   1.Paciente.  ---");
         System.out.println("---   2.Medico.    ---");
         System.out.println("---   3.Turno.     ---");
         tabla = lector.nextInt();
 
         switch (tabla) {
-            case 1:
-                Paciente();
-                break;
-            case 2:
-                Medico();
-                break;
-            case 3:
-                Turno();
-                break;
-            default:
-                System.out.println("Opcion no encontrada");
+            case 1 -> Paciente();
+            case 2 -> Medico();
+            case 3 -> Turno();
+            default -> System.out.println("Opción no encontrada");
         }
 
     }
