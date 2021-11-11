@@ -15,8 +15,8 @@ public class Main {
         System.out.println("---Digite la opción ---.");
         System.out.println("---   1.Agregar.    ---");
         System.out.println("---   2.Modificar.  ---"); //todos datos
-        System.out.println("---   3.Eliminar.   ---");//id
-        System.out.println("---   4.Consultar.  ---");//id
+        System.out.println("---   3.Eliminar.   ---");//listo
+        System.out.println("---   4.Consultar.  ---");//
         tabla = lector.nextInt();
 
         switch (tabla) {
