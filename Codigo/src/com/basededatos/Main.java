@@ -22,7 +22,7 @@ public class Main {
         switch (tabla) {
             case 1:
                 ClsAgregar agregar = new ClsAgregar();
-                agregar.menuAgregar();
+                agregar.menu();
                 break;
             case 2:
                 ClsModificar modificar = new ClsModificar();
@@ -31,7 +31,7 @@ public class Main {
                 ClsEliminar eliminar= new ClsEliminar();
                 break;
             case 4:
-                Cls
+                ClsConsultar consultar=new ClsConsultar();
                 break;
             default:
                 System.out.println("La opción ingresada no se ha encontrado.");

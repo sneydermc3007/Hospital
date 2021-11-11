@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class ClsAgregar {
 
 
-    public void menuAgregar (){
+    public void menu (){
         Scanner lector=new Scanner(System.in);
         int tabla;
         System.out.println("---Digite la opción---.");
