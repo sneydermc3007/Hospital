@@ -51,6 +51,7 @@ public class ClsAgregar {
         } catch (Exception ex) {
             System.out.println("\t Error al obtener el formato de la fecha " + ex.getMessage());
         }
+        System.out.print("Escriba su lugar de residencia: ");
         Domicilio=lector.nextLine();
         System.out.print("Escriba su pais: ");
         Pais = lector.nextLine();

@@ -64,7 +64,7 @@ public class Base_Datos_P extends ClsQueries{
     }
 
     @Override
-    public float Query(float ID) { //Consultar
+    public ResultSet Query(float ID) { //Consultar
         ConexionPaciente();
         try {
             state = cnnConnection.createStatement();
@@ -72,7 +72,7 @@ public class Base_Datos_P extends ClsQueries{
         } catch (SQLException e){
             Logger.getLogger(Base_Datos_P.class.getName()).log(Level.SEVERE, null, e);
         }
-        return resultado;
+        return result;
     }
 
     @Override

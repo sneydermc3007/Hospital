@@ -1,14 +1,15 @@
 package com.basededatos;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         menuPrincipal();
     }
 
-    public static void menuPrincipal() {
+    public static void menuPrincipal() throws SQLException {
         Scanner lector = new Scanner(System.in);
         int tabla;
         System.out.println("---- Menu Principal ----");
