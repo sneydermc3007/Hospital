@@ -79,7 +79,7 @@ public class Base_Datos_M extends ClsQueries {
     }
 
     @Override
-    public void QueryEliminar(float ID) { //Anular
+    public void QueryEliminar() { //Anular
         ConexionMedico();
         try{
             state = cnnConnection.createStatement();

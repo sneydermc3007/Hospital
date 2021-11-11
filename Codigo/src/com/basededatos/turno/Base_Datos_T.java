@@ -78,7 +78,7 @@ public class Base_Datos_T extends ClsQueries{
     }
 
     @Override
-    public void QueryEliminar(float ID, String estado) { //Anular
+    public void Query(float ID, String estado) { //Anular
         ConexionTurno();
         try{
             state = cnnConnection.createStatement();
