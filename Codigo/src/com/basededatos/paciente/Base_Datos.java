@@ -1,11 +1,7 @@
 package com.basededatos.paciente;
 
 import com.basededatos.ClsConexion;
-
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -94,7 +90,7 @@ public class Base_Datos extends ClsQueries{
             System.out.println("Registro eliminado");
             System.out.println("-----------------------------------------------------");
         } catch (SQLException e) {
-            Logger.getLogger(com.basededatos.medico.Base_Datos.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(Base_Datos.class.getName()).log(Level.SEVERE, null, e);
             System.out.println("Registro no existente");
         }
     }

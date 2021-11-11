@@ -1,34 +1,37 @@
-//CRUD tbl_Medico
-package com.basededatos.medico;
+//CRUD tbl_Turno
+package com.basededatos.turno;
 
 import java.sql.*;
 import com.basededatos.ClsConexion;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class Base_Datos extends ClsQueries {
+public class Base_Datos extends ClsQueries{
     private final float ID;
-    private final String nombres;
-    private final String apellidos;
+    private final Date cita;
+    private final String observacion;
+    private final String estado;
 
     Connection cnnConnection;
     Statement state;
     ResultSet result;
 
-    public Base_Datos(float id, String nombres, String apellidos) {
-        ID = id;
-        this.nombres = nombres;
-        this.apellidos = apellidos;
+    public Base_Datos(float ID, Date cita, String observacion, String estado) {
+        this.ID = ID;
+        this.cita = cita;
+        this.observacion = observacion;
+        this.estado = estado;
     }
 
     float resultado = 0;
     ClsConexion objcone = new ClsConexion();
 
     @Override
-    public float Query(float ID, String nombres, String apellidos) { //Adicionar
+    public float Query(float ID, Date Cita, String Observacion) { //Adicionar
         objcone.Conexion();
-        String consulta = "INSERT INTO tbl_medico (ID_MEDICO, Nombre_M, Apellido_M) " +
-                "VALUES ("+ID+", '"+nombres+"', '"+apellidos+"')";
+        String consulta = "INSERT INTO tbl_turno (ID_TURNO, Fecha_Turno, Observacion) " +
+                "VALUES ("+ID+", '"+Cita+"', '"+Observacion+"')";
         try {
             state = cnnConnection.createStatement();
             resultado = state.executeUpdate(consulta);
@@ -43,25 +46,25 @@ public class Base_Datos extends ClsQueries {
         objcone.Conexion();
         try {
             state = cnnConnection.createStatement();
-            result = state.executeQuery(" SELECT * FROM tbl_medico WHERE ID_MEDICO = "+ID+" ");
-        } catch (SQLException e){
+            result = state.executeQuery(" SELECT * FROM tbl_turno WHERE ID_TURNO = "+ID+" ");
+        }catch (SQLException e){
             Logger.getLogger(Base_Datos.class.getName()).log(Level.SEVERE, null, e);
         }
         return resultado;
     }
 
     @Override
-    public void QueryModificar(float ID, String nombres, String apellidos) { //Modificar
+    public void QueryModificar(float ID, Date Cita, String Observacion) { //Modificar
         objcone.Conexion();
-        String query = " UPDATE tbl_medico SET Nombre_M = '"+nombres+"', Apellido_M = '"+apellidos+"' WHERE(ID_MEDICO = "+ID+") ";
-        try{
+        String query = " UPDATE tbl_turno SET Fecha_Turno = '"+Cita+"', Observacion = '"+Observacion+"' WHERE(ID_TURNO = "+ID+") ";
+        try {
             state = cnnConnection.createStatement();
             state.executeUpdate(query);
-            System.out.println("Registro medico actualizado");
+            System.out.println("Registro de la cita actualizado");
             System.out.println("-----------------------------------------------------");
-        }catch (SQLException e) {
+        }catch (SQLException e){
             e.printStackTrace();
-            System.out.println("Problemas al actualizar el registro del medico");
+            System.out.println("Problemas al actualizar el registro de la cita.");
         }
     }
 
@@ -70,10 +73,10 @@ public class Base_Datos extends ClsQueries {
         objcone.Conexion();
         try{
             state = cnnConnection.createStatement();
-            state.executeUpdate("DELETE FROM tbl_medico WHERE ID_MEDICO = "+ID+"");
-            System.out.println("Registro eliminado");
+            state.executeUpdate(" UPDATE tbl_turno SET Estado = '"+estado+"' WHERE ID_TURNO = "+ID+" ");
+            System.out.println("Cita cancelada");
             System.out.println("-----------------------------------------------------");
-        } catch (SQLException e) {
+        }catch (SQLException e) {
             Logger.getLogger(Base_Datos.class.getName()).log(Level.SEVERE, null, e);
             System.out.println("Registro no existente");
         }
