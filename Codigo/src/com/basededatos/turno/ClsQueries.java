@@ -7,6 +7,6 @@ public abstract class ClsQueries {
 
     abstract public float Query();
     abstract public ResultSet Query(float ID);
-    abstract public void QueryModificar(float ID, Date Cita, String Observacion);
+    abstract public void Query(float ID, Date Cita, String Observacion);
     abstract public void Query(float ID, String estado);
 }

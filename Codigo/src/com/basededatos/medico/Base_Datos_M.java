@@ -64,7 +64,7 @@ public class Base_Datos_M extends ClsQueries {
     }
 
     @Override
-    public void QueryModificar(float ID, String nombres, String apellidos) { //Modificar
+    public void QueryModificar() { //Modificar
         ConexionMedico();
         String query = " UPDATE tbl_medico SET Nombre_M = '"+nombres+"', Apellido_M = '"+apellidos+"' WHERE(ID_MEDICO = "+ID+") ";
         try{

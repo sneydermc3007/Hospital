@@ -63,7 +63,7 @@ public class Base_Datos_T extends ClsQueries{
     }
 
     @Override
-    public void QueryModificar(float ID, Date Cita, String Observacion) { //Modificar
+    public void Query(float ID, Date Cita, String Observacion) { //Modificar
         ConexionTurno();
         String query = " UPDATE tbl_turno SET Fecha_Turno = '"+Cita+"', Observacion = '"+Observacion+"' WHERE(ID_TURNO = "+ID+") ";
         try {
