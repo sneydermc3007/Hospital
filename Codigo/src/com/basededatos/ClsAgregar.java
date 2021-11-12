@@ -12,7 +12,7 @@ public class ClsAgregar {
     float resultado;
 
     public void menu (){
-        Scanner lector=new Scanner(System.in);
+        Scanner lector = new Scanner(System.in);
         int tabla;
         System.out.println("\n ---- Menu de agregar datos ----");
         System.out.println("\t 1. Escojo Paciente.");
@@ -30,15 +30,15 @@ public class ClsAgregar {
     }
 
     public void Paciente() {
-        Scanner lector=new Scanner(System.in);
+        Scanner lector = new Scanner(System.in);
         float ID_PACIENTE;
         String Nombre_P, Apellido, Fecha_Nacimiento, Domicilio, Pais, Telefono, Email, Obsevacion;
 
         System.out.println("\n...Datos del paciente...");
         System.out.print("Escriba el ID del paciente: ");
-        ID_PACIENTE=lector.nextInt();
+        ID_PACIENTE = lector.nextInt();
         System.out.print("Escriba su primer nombre: ");
-        Nombre_P=lector.next();
+        Nombre_P = lector.next();
         System.out.print("Escriba sus apellidos: ");
         Apellido = lector.next();
         System.out.print("Escriba su fecha de nacimiento (año-mes-dia): ");
@@ -52,15 +52,15 @@ public class ClsAgregar {
             System.out.println("\t Error al obtener el formato de la fecha " + ex.getMessage());
         }
         System.out.print("Escriba su lugar de residencia: ");
-        Domicilio=lector.nextLine();
+        Domicilio = lector.next();
         System.out.print("Escriba su pais: ");
-        Pais = lector.nextLine();
+        Pais = lector.next();
         System.out.print("Escriba su telefono: ");
-        Telefono=lector.nextLine();
+        Telefono = lector.next();
         System.out.print("Escriba su email: ");
-        Email=lector.nextLine();
+        Email = lector.next();
         System.out.print("Escriba su observaciones: ");
-        Obsevacion=lector.nextLine();
+        Obsevacion = lector.next();
 
         Base_Datos_P objeto = new Base_Datos_P(ID_PACIENTE, Nombre_P, Apellido, fecFormatoDate, Domicilio, Pais, Telefono, Email, Obsevacion);
         resultado = objeto.Query(ID_PACIENTE, Nombre_P, Apellido, fecFormatoDate, Domicilio, Pais, Telefono, Email, Obsevacion);
@@ -73,16 +73,16 @@ public class ClsAgregar {
     }
 
     public void Medico() {
-        Scanner lector=new Scanner(System.in);
-        String Nombre_M,Apellido_M;
+        Scanner lector = new Scanner(System.in);
+        String Nombre_M, Apellido_M;
         int ID_MEDICO;
         System.out.println("\n...Datos del medico...");
         System.out.print("Digite el ID del medico: ");
-        ID_MEDICO=lector.nextInt();
-        System.out.print("Digite su(s) nombres del medico: ");
-        Nombre_M= lector.next();
+        ID_MEDICO = lector.nextInt();
+        System.out.print("Digite su nombre del medico: ");
+        Nombre_M = lector.next();
         System.out.print("Digite los apellidos del medico: ");
-        Apellido_M=lector.next();
+        Apellido_M = lector.next();
 
         Base_Datos_M objeto = new Base_Datos_M(ID_MEDICO, Nombre_M, Apellido_M);
         resultado = objeto.Query();
@@ -95,14 +95,14 @@ public class ClsAgregar {
     }
 
     public void  Turno() {
-        Scanner lector=new Scanner(System.in);
+        Scanner lector = new Scanner(System.in);
         int ID_TURNO;
-        String Fecha_Turno,Observacion;
+        String Fecha_Turno, Observacion;
 
         System.out.print("Digite un ID para asignarle a la cita: ");
-        ID_TURNO= lector.nextInt();
+        ID_TURNO = lector.nextInt();
         System.out.print("Digite la fecha del turno: ");
-        Fecha_Turno=lector.next();
+        Fecha_Turno = lector.next();
         java.sql.Date FormatoDateT = null;
         try {
             SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd", new Locale("es", "ES"));
@@ -112,7 +112,7 @@ public class ClsAgregar {
             System.out.println("\t Error al obtener el formato de la fecha: " + ex.getMessage());
         }
         System.out.print("Observaciones: ");
-        Observacion=lector.nextLine();
+        Observacion = lector.next();
 
         Base_Datos_T objeto = new Base_Datos_T(ID_TURNO, FormatoDateT, Observacion);
         resultado = objeto.Query();

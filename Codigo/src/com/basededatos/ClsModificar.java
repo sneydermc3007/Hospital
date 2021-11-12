@@ -34,9 +34,9 @@ public class ClsModificar {
 
         System.out.println("\n...Datos del paciente...");
         System.out.print("Escriba el ID del paciente que desea modificar: ");
-        ID_PACIENTE=lector.nextInt();
+        ID_PACIENTE = lector.nextInt();
         System.out.print("Escriba el nuevo nombre: ");
-        Nombre_P=lector.next();
+        Nombre_P = lector.next();
         System.out.print("Escriba de nuevo los apellidos: ");
         Apellido = lector.next();
         System.out.print("Escriba la nueva fecha de nacimiento (año-mes-dia): ");
@@ -50,22 +50,22 @@ public class ClsModificar {
             System.out.println("\t Error al obtener el formato de la fecha " + ex.getMessage());
         }
         System.out.print("Escriba su nuevo lugar de residencia: ");
-        Domicilio=lector.next();
+        Domicilio = lector.next();
         System.out.print("Escriba el nuevo pais: ");
         Pais = lector.next();
         System.out.print("Escriba el nuevo telefono: ");
-        Telefono=lector.next();
+        Telefono = lector.next();
         System.out.print("Escriba el nuevo email: ");
-        Email=lector.next();
+        Email = lector.next();
         System.out.print("Escriba las nuevas observaciones: ");
-        Obsevacion=lector.next();
+        Obsevacion = lector.next();
 
         Base_Datos_P objeto = new Base_Datos_P(ID_PACIENTE, Nombre_P, Apellido, FormatoDate, Domicilio, Pais, Telefono, Email, Obsevacion);
         objeto.QueryModificar(ID_PACIENTE, Nombre_P, Apellido, FormatoDate, Domicilio, Pais, Telefono, Email, Obsevacion);
     }
 
     public void Medico() {
-        Scanner lector=new Scanner(System.in);
+        Scanner lector = new Scanner(System.in);
         String Nombre_M, Apellido_M;
         int ID_MEDICO;
         System.out.print("Digite el ID del medico que desea modificar: ");
@@ -80,13 +80,13 @@ public class ClsModificar {
     }
 
     private void Turno() {
-        Scanner lector=new Scanner(System.in);
+        Scanner lector = new Scanner(System.in);
         int ID_TURNO;
         String Fecha_Turno, Observacion;
 
         System.out.print("Digite el ID del cita que desea actualizar: ");
-        ID_TURNO= lector.nextInt();
-        System.out.println("Digite la nueva fecha del turno:");
+        ID_TURNO = lector.nextInt();
+        System.out.print("Digite la nueva fecha del turno: ");
         Fecha_Turno = lector.next();
 
         java.sql.Date FormatoDateT = null;
@@ -97,7 +97,7 @@ public class ClsModificar {
         } catch (Exception ex) {
             System.out.println("\t Error al obtener el formato de la fecha: " + ex.getMessage());
         }
-        System.out.print("Escriba las nuevas observaciones:");
+        System.out.print("Escriba las nuevas observaciones: ");
         Observacion = lector.next();
 
         Base_Datos_T objeto = new Base_Datos_T(ID_TURNO, FormatoDateT, Observacion);

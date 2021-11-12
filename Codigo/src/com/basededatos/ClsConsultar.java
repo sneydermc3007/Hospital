@@ -36,7 +36,7 @@ public class ClsConsultar {
         int ID_PACIENTE;
         String fecha = "2021-11-11";
 
-        System.out.println("Digite el ID del paciente:");
+        System.out.print("Digite el ID del paciente: ");
         ID_PACIENTE = lector.nextInt();
         java.sql.Date fecFormatoDate = null;
         try {
@@ -81,11 +81,11 @@ public class ClsConsultar {
     }
 
     private void Turno() throws SQLException {
-        Scanner lector=new Scanner(System.in);
+        Scanner lector = new Scanner(System.in);
         int ID_TURNO;
         String fecha = "2021-11-11";
 
-        System.out.print("Digite el ID turno:");
+        System.out.print("Digite el ID turno: ");
         ID_TURNO = lector.nextInt();
         java.sql.Date fecFormatoDate = null;
         try {
@@ -99,7 +99,7 @@ public class ClsConsultar {
         result = objeto.Query(ID_TURNO);
 
         if(result.next()){
-            System.out.println("Registro hallado");
+            System.out.println("Registro hallado.");
             result.getString("Observacion");
             System.out.println("\n Con fecha: " + result.getString("Fecha_Turno") +
                     ", esta cita esta activo: " + result.getString("Estado"));

@@ -32,7 +32,7 @@ public class ClsEliminar {
         int ID_PACIENTE;
         String fecha = "2021-11-11";
 
-        System.out.println("Digite el ID del paciente:");
+        System.out.print("Digite el ID del paciente: ");
         java.sql.Date fecFormatoDate = null;
         try {
             SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd", new Locale("es", "ES"));
@@ -47,23 +47,23 @@ public class ClsEliminar {
     }
 
     private void Medico() {
-        Scanner lector=new Scanner(System.in);
+        Scanner lector = new Scanner(System.in);
         int ID_MEDICO;
 
-        System.out.println("Digite el ID del medico:");
-        ID_MEDICO=lector.nextInt();
+        System.out.print("Digite el ID del medico: ");
+        ID_MEDICO = lector.nextInt();
 
         Base_Datos_M objeto = new Base_Datos_M(ID_MEDICO, "","");
         objeto.QueryEliminar();
     }
 
     private void Turno() {
-        Scanner lector=new Scanner(System.in);
+        Scanner lector = new Scanner(System.in);
         int ID_TURNO;
         String fecha = "2021-11-11";
 
         System.out.print("Digite el ID turno que desea eliminar:");
-        ID_TURNO= lector.nextInt();
+        ID_TURNO = lector.nextInt();
         java.sql.Date fecFormatoDate = null;
         try {
             SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd", new Locale("es", "ES"));
