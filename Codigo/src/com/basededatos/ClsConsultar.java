@@ -19,7 +19,8 @@ public class ClsConsultar {
         System.out.println("\n ---- Menu para consultar datos ----");
         System.out.println("\t 1. Escojo Paciente.");
         System.out.println("\t 2. Escojo Medico.");
-        System.out.println("\t 3. Escojo Turno. ");
+        System.out.println("\t 3. Escojo Turno.");
+        System.out.println("\t 4. Todo.");
         System.out.print("\n Digite la opción en donde desea consultar registros: ");
         tabla = lector.nextInt();
 
@@ -27,6 +28,7 @@ public class ClsConsultar {
             case 1 -> Paciente();
             case 2 -> Medico();
             case 3 -> Turno();
+            case 4 -> All();
             default -> System.out.println("Opción no encontrada");
         }
     }
@@ -103,6 +105,18 @@ public class ClsConsultar {
             result.getString("Observacion");
             System.out.println("\n Con fecha: " + result.getString("Fecha_Turno") +
                     ", esta cita esta activo: " + result.getString("Estado"));
+        }
+    }
+
+    private void All() throws SQLException {
+        Muestra objeto = new Muestra();
+        result = objeto.consultar_all();
+        if(result.next()){
+            System.out.println("Muestra de registros hasta el momento.");
+            result.getString("hospital_poo.tbl_paciente.Fecha_Nacimiento");
+            System.out.println("\n El paciente con nombre: " + result.getString("hospital_poo.tbl_paciente.Nombre_P") + " " + result.getString("hospital_poo.tbl_paciente.Apellido") +
+                    ", esta registrado con el codigo: " + result.getString("hospital_poo.hospital_poo.tbl_auxiliar.FK_ID_PACIENTE"));
+            System.out.println("-----------------------------------------------------");
         }
     }
 }
